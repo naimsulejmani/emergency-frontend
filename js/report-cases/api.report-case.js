@@ -10,4 +10,16 @@ class ApiReportCase {
         const response = await fetch(this.url + "/" + reportCaseId); // GET
         return await response.json();
     }
+
+    async deleteById(reportCaseId) {
+        const response = await fetch(this.url + "/" + reportCaseId, {
+            method: 'DELETE'
+        });
+        return await response.text();
+    }
 }
+
+
+
+
+
