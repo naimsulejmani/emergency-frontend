@@ -17,7 +17,28 @@ class ApiReportCase {
         });
         return await response.text();
     }
+
+
+    async register(reportCase) {
+        const response = await fetch(this.url, {
+            method: 'POST',
+            body: JSON.stringify(reportCase),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        return await response.text();
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 
