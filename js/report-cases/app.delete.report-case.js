@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (confirm("A je i sigurte se deshiron me fshi rastin: " + rptCaseId)) {
                 const response = await apiReport.deleteById(rptCaseId);
                 if (!response) {
-                    window.location.pathname = '/emergency-frontend/pages/report-cases/list.html';
+                    //window.location.pathname = '/emergency-frontend/pages/report-cases/list.html';
+                    window.location.href = "./list.html";
                 }
             }
 
