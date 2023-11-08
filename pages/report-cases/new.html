@@ -119,21 +119,62 @@
 </div>
 <div class="container py-3">
     <form>
+        <hr>
         <div id="reportCase">
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
+            <div class="row g-3 align-items-center my-1">
+                <div class="col">
                     <label for="inputReporter" class="col-form-label">Reporter: </label>
                 </div>
-                <div class="col-auto">
+                <div class="col">
                     <input type="text" id="inputReporter" class="form-control">
                 </div>
             </div>
+            <div class="row g-3 align-items-center my-1">
+                <div class="col">
+                    <label for="inputDate" class="col-form-label">Date: </label>
+                </div>
+                <div class="col">
+                    <input type="datetime-local" id="inputDate" class="form-control">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center my-1">
+                <div class="col">
+                    <label for="inputAddress" class="col-form-label">Address: </label>
+                </div>
+                <div class="col">
+                    <input type="text" id="inputAddress" class="form-control">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center my-1">
+                <div class="col">
+                    <label for="selectCaseType" class="col-form-label">Case Type: </label>
+                </div>
+                <div class="col">
+                    <select id="selectCaseType" class="form-control">
+                        <option value="Aksident" selected>Aksident</option>
+                        <option value="Zjarr">Zjarr</option>
+                        <option value="Vjedhje">Vjedhje</option>
+                        <option value="Tjeter">Tjeter</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center my-1">
+                <div class="col">
+                    <label for="textAreaDescription" class="col-form-label">Description: </label>
+                </div>
+                <div class="col">
+                    <textarea class="form-control" id="textAreaDescription" rows="5">
+
+                    </textarea>
+                </div>
+            </div>
         </div>
+        <hr>
         <div id="actions">
-            <button type="button" class="btn btn-danger"
-                    id="btnDeleteRptCase"
-                    style="display: none">DELETE
-            </button>
+            <button type="submit" class="btn btn-bd-primary" id="btnSave">SAVE</button>
+            <button type="reset" class="btn btn-warning" id="btnReset">Reset</button>
+            <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
         </div>
     </form>
 </div>
