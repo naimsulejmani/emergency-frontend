@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputAddress = document.querySelectorAll("#inputAddress")[0];
     const selectCaseType = document.getElementById('selectCaseType');
     const textAreaDescription = document.querySelector("textarea#textAreaDescription");
+    const chbActive = document.getElementById('chbActive');
 
     const btnSave = document.getElementById('btnSave');
     const btnCancel = document.getElementById('btnCancel');
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const address = inputAddress.value;
         const caseType = selectCaseType.value;
         const description = textAreaDescription.value;
+        const active = chbActive.checked;
 
         if (!reporter) {
             inputReporter.style.borderColor = "red";
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const model = new ReportCase(0, description, caseType, address, reporter, date);
+        const model = new ReportCase(0, description, caseType, address, reporter, date, active);
         // JSON Object { name: "Naim", age: 10}
         console.log(model);
         const apiReport = new ApiReportCase();

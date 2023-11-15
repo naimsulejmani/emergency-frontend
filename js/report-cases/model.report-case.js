@@ -6,6 +6,7 @@ class ReportCase {
         address,
         reporter,
         date,
+        active = true,
         createdAt = new Date()
     ) {
         this.id = id;
@@ -14,6 +15,7 @@ class ReportCase {
         this.address = address;
         this.reporter = reporter;
         this.date = date;
+        this.active = active;
         this.createdAt = createdAt;
     }
 }
