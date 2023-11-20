@@ -29,6 +29,17 @@ class ApiReportCase {
         });
         return await response.text();
     }
+
+    async modify(reportCaseId, reportCase) {
+        const response = await fetch(this.url + '/' + reportCaseId, {
+            method: 'PUT',
+            body: JSON.stringify(reportCase),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        return await response.text();
+    }
 }
 
 
