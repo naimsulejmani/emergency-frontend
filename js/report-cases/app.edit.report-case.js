@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnCancel = document.getElementById('btnCancel');
 
     async function onSave() {
+        const rptCaseId = window.location.search.split("=")[1].trim();
         const reporter = inputReporter.value;
         const date = inputDate.value;
         const address = inputAddress.value;
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // JSON Object { name: "Naim", age: 10}
         console.log(model);
         const apiReport = new ApiReportCase();
-        await apiReport.register(model);
+        await apiReport.modify(rptCaseId, model);
         window.location.href = "./list.html";
     }
 
