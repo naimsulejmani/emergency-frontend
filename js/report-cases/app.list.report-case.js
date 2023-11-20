@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${rptCase.address}</td>
                 <td>
                     <input type="checkbox" class="statusChange" ${rptCase.active ? 'checked' : ''}
-                    style="width: 25px; height: 25px;" data-rptid = "${rptCase.id}"/>
+                    style="width: 25px; height: 25px;" data-rptid = "${rptCase.id}" data-name="Altin"/>
                 </td>
                 <td>
                     <a href="./print.html?reportCaseId=${rptCase.id}" class="btn btn-light">
@@ -45,8 +45,28 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    loadData()
+    loadData();
+
+    tableReportBody.addEventListener('click', async (event) => {
+        console.log(event.target);
+        if (event.target.className === 'statusChange') {
+            console.log(event.target.dataset)
+            const apiReport = new ApiReportCase();
+            const result = await apiReport.changeStatus(event.target.dataset.rptid, {active: event.target.checked});
+            console.log(result);
+            if (!result) {
+                window.location.reload();
+            }
+        }
+    });
+
 });
+
+
+
+
+
+
 
 
 

@@ -40,6 +40,17 @@ class ApiReportCase {
         });
         return await response.text();
     }
+
+    async changeStatus(reportCaseId, reportCase) {
+        const response = await fetch(this.url + '/' + reportCaseId, {
+            method: 'PATCH',
+            body: JSON.stringify(reportCase),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        return await response.text();
+    }
 }
 
 
