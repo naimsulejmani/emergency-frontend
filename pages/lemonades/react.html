@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lemonadejs/dist/lemonade.min.js"></script>
+
+</head>
+<body>
+<div id="root"></div>
+<script>
+    function ListComponent() {
+        const self = this;
+
+        self.hobbies = [
+            {title: "Basketball", description: "Me ka pelqyer Kobe Bryant"},
+            {title: "Football", description: "Me pelqen Benzema"}
+        ];
+
+        self.add = function () {
+            console.log(self.newTitle);
+            console.log(self.newDescription);
+            if (self.newTitle && self.newDescription) {
+                self.hobbies.push({
+                    title: self.newTitle,
+                    description: self.newDescription
+                });
+                self.refresh('hobbies');
+            }
+        }
+
+        return `<>
+        <div>
+            <div>Title: <input type='text' :bind='self.newTitle'/> </div>
+            <div>Description: <input type='text' :bind='self.newDescription'/> </div>
+            <button onclick="self.add()">Add new Hobby</button>
+        </div>
+            <ul :loop="self.hobbies">
+                <li>{{self.title}} - {{self.description}}</li>
+            </ul>
+        </>
+        `;
+    }
+
+    lemonade.render(ListComponent, document.getElementById('root'));
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

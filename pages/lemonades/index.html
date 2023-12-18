@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LemonadeJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/lemonadejs/dist/lemonade.min.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css"/>
+</head>
+<body>
+<div id='root'>
+    <p><strong>{{self.title}}</strong></p>
+    <div>
+        Title: <input type="text" :bind="self.title"/>
+    </div>
+    <div>
+        Description: <input type="text" :bind="self.description"/>
+    </div>
+    <div>
+        Hobby: <input type="text" :bind="self.newHobbie"/>
+    </div>
+    <div>
+        <ul :loop="self.hobbies">
+            <li>
+                {{self.name}}
+            </li>
+        </ul>
+    </div>
+    <div>
+        <input type="button" value="Add New Hobby"
+               onclick="changeTitle()"/>
+    </div>
+</div>
+<script>
+    // Apply the self object to an existing HTML element already in the DOM
+    let self = {};
+    self.title = '';
+    self.description = "";
+
+    self.newHobbie = "";
+
+    self.hobbies = [
+        {name: 'basketball'}, {name: 'football'},
+    ];
+
+    function changeTitle() {
+        console.log(self);
+
+        if (self.newHobbie) {
+            self.hobbies.push({name: self.newHobbie});
+            // self.refresh('hobbies')
+        }
+
+        //arrow function (lambda expression ne java), anonymous function ne java /javascript
+        // setTimeout(() => {
+        //     self.title = "TITULLI I RI PAS 5 sekondave"
+        // }, 5000)
+    }
+
+    lemonade.apply(document.getElementById('root'), self);
+</script>
+</body>
+</html>
