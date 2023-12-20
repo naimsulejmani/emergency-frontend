@@ -16,8 +16,29 @@
 
         const self = this;
 
-        self.name = "Naim";
+        self.reset = function () {
+            self.name = "";
+            self.surname = "";
+            self.birthdate = new Date().toISOString().substring(0, 10);
+            self.gender = "";
+            self.active = false;
+        }
 
+        self.add = function () {
+            const obj = {
+                name: self.name,
+                surname: self.surname,
+                birthdate: self.birthdate,
+                gender: self.gender,
+                active: self.active
+            };
+
+            if (confirm("A jeni i sigurt qe doni me regjistru personin: " + obj.name)) {
+                alert(JSON.stringify(obj));
+                self.reset();
+            } else
+                alert("PISHMAN")
+        }
 
         return `<div>
 <h3>Menaxhimi i personave</h3>
@@ -37,10 +58,13 @@
 
 <div>
     <div>
-        Gender: <br>
+        Gender: <br/>
         <input type="radio" :bind="self.gender" value="Male"/> Male <br/>
         <input type="radio" :bind="self.gender" value="Female"/> Female
      </div>
+</div>
+<div>
+    <button onclick="self.add()">Save</button>   <button onclick="self.reset()">Reset</button>
 </div>
 </div>`
     }
