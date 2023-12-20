@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lemonadejs/dist/lemonade.min.js"></script>
+
+</head>
+<body>
+<div id="root"></div>
+<script>
+    function RegisterPerson() {
+
+        const self = this;
+
+        self.name = "Naim";
+
+
+        return `<div>
+<h3>Menaxhimi i personave</h3>
+<hr>
+<div>
+    <div>Name: <input type="text" :bind="self.name"/> </div>
+</div>
+<div>
+    <div>Surname: <input type="text" :bind="self.surname"/> </div>
+</div>
+<div>
+    <div>Birthdate: <input type="date" :bind="self.birthdate"/> </div>
+</div>
+<div>
+    <div>Active: <input type="checkbox" :bind="self.active"/> </div>
+</div>
+
+<div>
+    <div>
+        Gender: <br>
+        <input type="radio" :bind="self.gender" value="Male"/> Male <br/>
+        <input type="radio" :bind="self.gender" value="Female"/> Female
+     </div>
+</div>
+</div>`
+    }
+
+
+    lemonade.render(RegisterPerson, document.getElementById('root'));
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
