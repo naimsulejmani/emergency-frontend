@@ -60,7 +60,7 @@ class ApiReportCase {
         return response.data;
     }
 
-    async changeStatus(reportCaseId, reportCase) {
+    async changeStatus(reportCaseId, active) {
         // const response = await fetch(this.url + '/' + reportCaseId, {
         //     method: 'PATCH',
         //     body: JSON.stringify(reportCase),
@@ -69,7 +69,7 @@ class ApiReportCase {
         //     }
         // });
         // return await response.text();
-        const response = await axios.patch(this.url + '/' + reportCaseId, reportCase);
+        const response = await axios.patch(this.url + '/' + reportCaseId, { active });
 
         return response.data;
     }

@@ -10,6 +10,8 @@ function ListReportCases() {
 
     self.findAll();
 
+    lemonade.set('ListReportCases', self);
+
     return `<div class="table-responsive small">
         <table class="table table-striped table-sm">
             <thead>
@@ -32,7 +34,7 @@ function ListReportCases() {
                 <td>{{self.description}}</td>
                 <td>{{self.address}}</td>
                 <td>
-                   {{self.active}}
+                  <CheckboxActive active="{{self.active}}" report_id="{{self.id}}"></CheckboxActive>
                 </td>
                 <td>
                     <a href="./print.html?reportCaseId={{self.id}}" class="btn btn-light">
