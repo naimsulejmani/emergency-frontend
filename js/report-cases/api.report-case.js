@@ -17,7 +17,7 @@ class ApiReportCase {
         // return await response.json();
 
         const response = await axios.get(this.url + "/" + reportCaseId);
-        return response.status === 200 ? response.data : {};
+        return response.status === 200 ? response.data : null;
     }
 
     async deleteById(reportCaseId) {
